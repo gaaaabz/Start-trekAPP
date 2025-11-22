@@ -18,19 +18,39 @@ export default function Home() {
           </Text>
         </View>
 
-        <Link href="../login" asChild>
+        <View
+          style={{backgroundColor: '#12172b',
+            borderRadius: 12,
+            padding: 18,
+            marginTop: 10,
+            marginBottom: 26,
+            borderWidth: 1,
+            borderColor: '#1d2440',
+          }}
+        >
+          <Text
+            style={{
+              color: '#cbd5f5',
+              fontSize: 15,
+              lineHeight: 22,
+              textAlign: 'center',
+            }}
+          >
+            Descubra como diferentes profissões moldaram o mundo ao longo da história
+            e como novas carreiras podem surgir no futuro. O StartTrek é um projeto vivo 
+            criado por estudantes curiosos com objetivo de preservar profissoes mortas, e 
+            levantar debates sobre quais profissões podem deixar de existir ou que vão 
+            existir no futuro. Aqui é um espaço livre para você compartilhar suas ideias,
+            curiosidades, e experiências.
+          </Text>
+        </View>
+
+
+        <Link href="./categorias" asChild>
           <TouchableOpacity style={{ padding: 14, borderRadius: 999, backgroundColor: '#63b3ff', marginBottom: 12 }}>
             <Text style={{ textAlign: 'center', color: '#fff', fontWeight: '700' }}>Começar Agora</Text>
           </TouchableOpacity>
         </Link>
-
-        <View style={{ marginTop: 24 }}>
-          <Link href="/categorias" asChild>
-            <TouchableOpacity style={{ padding: 14, borderRadius: 12, backgroundColor: '#141a29' }}>
-              <Text style={{ color: '#7aa7ff', fontWeight: '700' }}>Explorar Categorias</Text>
-            </TouchableOpacity>
-          </Link>
-        </View>
       </View>
     </view>
   );

@@ -26,7 +26,7 @@ export default function Profile() {
       setToken(t);
       if (!id) {
         Alert.alert('Nenhum usuário logado!');
-        router.replace('../../login');
+        router.replace('/login');
         return;
       }
       carregarPerfil(id);
@@ -75,7 +75,7 @@ export default function Profile() {
         const erro = await resp.text();
         throw new Error(erro);
       }
-      // upload de foto (se houver) - API espera patch /usuarios/:id/foto
+      // upload de foto
       if (fotoUri && fotoUri.startsWith('file')) {
         const fd = new FormData();
         // @ts-ignore: FormData type for react native blob
@@ -103,7 +103,7 @@ export default function Profile() {
 
   async function handleLogout() {
     await AsyncStorage.clear();
-    router.replace('../login');
+    router.replace('./');
   }
 
   return (

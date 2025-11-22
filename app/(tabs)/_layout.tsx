@@ -1,19 +1,24 @@
+import { Stack } from 'expo-router';
 import React from 'react';
 import { Tabs } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 
 const Colors = {
-  light: {
-    background: '#FFF4E6',
-    active: '#FF6B00',
-    inactive: '#9CA3AF',
-  },
-  dark: {
-    background: '#1F2937',
-    active: '#F97316',
-    inactive: '#9CA3AF',
-  },
+light: {
+background: '#f5f7ff',
+card: '#12172b',
+primary: '#63b3ff',
+text: '#cbd5f5',
+heading: '#63b3ff',
+},
+dark: {
+background: '#0b0f19',
+card: '#12172b',
+primary: '#63b3ff',
+text: '#cbd5f5',
+heading: '#63b3ff',
+}
 };
 
 export default function AuthTabsLayout() {
@@ -24,8 +29,6 @@ export default function AuthTabsLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: theme.active,
-        tabBarInactiveTintColor: theme.inactive,
         tabBarStyle: {
           backgroundColor: theme.background,
           borderTopWidth: 0,
@@ -66,6 +69,7 @@ export default function AuthTabsLayout() {
           ),
         }}
       />
+
     </Tabs>
   );
 }
