@@ -1,7 +1,7 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
+import { useColorScheme } from '@/hooks/use-color-scheme';
 import { Ionicons } from '@expo/vector-icons';
-import { useDynamicTheme } from "@/hooks/usedynamictheme";
 
 const Colors = {
   light: {
@@ -25,12 +25,11 @@ const Colors = {
 };
 
 export default function AuthTabsLayout() {
-  const { themeMode, ldrValue } = useDynamicTheme();
-  const theme = Colors[themeMode];
+  const colorScheme = useColorScheme();
+  const theme = Colors[colorScheme ?? 'light'];
 
   return (
     <Tabs
-      key={themeMode}
       screenOptions={{
         headerShown: false,
         tabBarStyle: {

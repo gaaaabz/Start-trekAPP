@@ -5,7 +5,7 @@ import { Link } from 'expo-router';
 
 export default function Home() {
   return (
-    <view style={{ flex: 1, backgroundColor: '#0b0f19' }}>
+    <View style={{ flex: 1, backgroundColor: '#0b0f19' }}>
       <View style={{ padding: 20 }}>
         <View style={{ height: 70, backgroundColor: '#12172b', borderRadius: 10, justifyContent: 'center', paddingHorizontal: 16, marginBottom: 20 }}>
           <Text style={{ color: '#63b3ff', fontSize: 20, fontWeight: '800' }}>StartTrek</Text>
@@ -52,6 +52,6 @@ export default function Home() {
           </TouchableOpacity>
         </Link>
       </View>
-    </view>
+    </View>
   );
 }
