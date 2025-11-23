@@ -36,9 +36,8 @@ export default function Categorias() {
   return (
     <ScrollView contentContainerStyle={{ padding: 20, backgroundColor: '#0b0f19' }}>
 
-      {/* 🔙 Botão voltar */}
       <TouchableOpacity
-        onPress={() => router.back()}
+        onPress={() => router.push('/')}
         style={{ marginBottom: 20, paddingVertical: 6, width: 80 }}
       >
         <Text style={{ color: '#63b3ff', fontSize: 18 }}>← Voltar</Text>
