@@ -1,56 +1,61 @@
-import { Stack } from 'expo-router';
-import React from 'react';
 import { Tabs } from 'expo-router';
+import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useDynamicTheme } from "@/hooks/usedynamictheme";
 
 const Colors = {
-light: {
-background: '#f5f7ff',
-card: '#12172b',
-primary: '#63b3ff',
-text: '#cbd5f5',
-heading: '#63b3ff',
-},
-dark: {
-background: '#0b0f19',
-card: '#12172b',
-primary: '#63b3ff',
-text: '#cbd5f5',
-heading: '#63b3ff',
-}
+  light: {
+    background: '#ffffff',
+    card: '#e3e8ff',
+    primary: '#4a90ff',
+    text: '#1a2340',
+    heading: '#2c3878',
+    tabActive: '#4a90ff',
+    tabInactive: '#777',
+  },
+  dark: {
+    background: '#0b0f19',
+    card: '#1a1f33',
+    primary: '#6aa8ff',
+    text: '#d1dbff',
+    heading: '#6aa8ff',
+    tabActive: '#6aa8ff',
+    tabInactive: '#777',
+  }
 };
 
 export default function AuthTabsLayout() {
-  const colorScheme = useColorScheme();
-  const theme = Colors[colorScheme ?? 'light'];
+  const { themeMode, ldrValue } = useDynamicTheme();
+  const theme = Colors[themeMode];
 
   return (
     <Tabs
+      key={themeMode}
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: theme.background,
+          backgroundColor: theme.card,
           borderTopWidth: 0,
-          elevation: 5,
-          height: 60,
+          height: 70,
         },
         tabBarLabelStyle: {
-          fontSize: 13,
-          fontWeight: '600',
-          marginBottom: 6,
+          fontSize: 14,
+          fontWeight: '700',
+          color: theme.text,
         },
+        tabBarActiveTintColor: theme.tabActive,
+        tabBarInactiveTintColor: theme.tabInactive,
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
+          tabBarIcon: ({ focused }) => (
             <Ionicons
-              name={focused ? 'home' : 'map-outline'}
-              size={24}
-              color={color}
+              name={focused ? 'home' : 'home-outline'}
+              size={26}
+              color={focused ? theme.tabActive : theme.tabInactive}
             />
           ),
         }}
@@ -60,16 +65,15 @@ export default function AuthTabsLayout() {
         name="perfil"
         options={{
           title: 'Perfil',
-          tabBarIcon: ({ color, focused }) => (
+          tabBarIcon: ({ focused }) => (
             <Ionicons
               name={focused ? 'person' : 'person-outline'}
-              size={24}
-              color={color}
+              size={26}
+              color={focused ? theme.tabActive : theme.tabInactive}
             />
           ),
         }}
       />
-
     </Tabs>
   );
 }

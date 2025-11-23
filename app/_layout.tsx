@@ -3,11 +3,23 @@ import { useColorScheme } from '@/hooks/use-color-scheme';
 
 const Colors = {
   light: {
-    background: '#FFF4E6',
+    background: '#ffffff',
+    card: '#e3e8ff',
+    primary: '#4a90ff',
+    text: '#1a2340',
+    heading: '#2c3878',
+    tabActive: '#4a90ff',
+    tabInactive: '#777',
   },
   dark: {
-    background: '#161b33',
-  },
+    background: '#0b0f19',
+    card: '#1a1f33',
+    primary: '#6aa8ff',
+    text: '#d1dbff',
+    heading: '#6aa8ff',
+    tabActive: '#6aa8ff',
+    tabInactive: '#777',
+  }
 };
 
 export default function Layout() {
